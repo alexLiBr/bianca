@@ -1,0 +1,808 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #853b5b 0%,
+            #4b1c32 40%,
+            #210b16 75%,
+            #10050a 100%
+        );
+}
+
+
+/* =========================
+   FUNDO
+========================= */
+
+.fundo {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.luz {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.35;
+}
+
+.luz1 {
+    width: 380px;
+    height: 380px;
+
+    background: #d86c91;
+
+    top: -150px;
+    left: -120px;
+}
+
+.luz2 {
+    width: 330px;
+    height: 330px;
+
+    background: #9f4268;
+
+    right: -100px;
+    top: 35%;
+}
+
+.luz3 {
+    width: 400px;
+    height: 400px;
+
+    background: #d47b9b;
+
+    bottom: -200px;
+    left: 35%;
+}
+
+
+/* =========================
+   BRILHOS
+========================= */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.particulas span {
+    position: absolute;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+
+    animation: brilho 4s infinite ease-in-out;
+}
+
+.particulas span:nth-child(1) {
+    left: 8%;
+    top: 15%;
+}
+
+.particulas span:nth-child(2) {
+    left: 20%;
+    top: 70%;
+}
+
+.particulas span:nth-child(3) {
+    left: 35%;
+    top: 12%;
+}
+
+.particulas span:nth-child(4) {
+    left: 48%;
+    top: 80%;
+}
+
+.particulas span:nth-child(5) {
+    left: 65%;
+    top: 20%;
+}
+
+.particulas span:nth-child(6) {
+    left: 80%;
+    top: 65%;
+}
+
+.particulas span:nth-child(7) {
+    left: 90%;
+    top: 15%;
+}
+
+.particulas span:nth-child(8) {
+    left: 12%;
+    top: 45%;
+}
+
+.particulas span:nth-child(9) {
+    left: 55%;
+    top: 45%;
+}
+
+.particulas span:nth-child(10) {
+    left: 75%;
+    top: 85%;
+}
+
+.particulas span:nth-child(11) {
+    left: 42%;
+    top: 30%;
+}
+
+.particulas span:nth-child(12) {
+    left: 95%;
+    top: 50%;
+}
+
+@keyframes brilho {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+
+/* =========================
+   CORAÇÕES
+========================= */
+
+.coracoes {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.coracoes span {
+    position: absolute;
+
+    bottom: -50px;
+
+    color: rgba(255, 190, 210, 0.25);
+
+    font-size: 22px;
+
+    animation: subir 12s linear infinite;
+}
+
+.coracoes span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.coracoes span:nth-child(2) {
+    left: 18%;
+    animation-delay: 3s;
+}
+
+.coracoes span:nth-child(3) {
+    left: 32%;
+    animation-delay: 6s;
+}
+
+.coracoes span:nth-child(4) {
+    left: 46%;
+    animation-delay: 1s;
+}
+
+.coracoes span:nth-child(5) {
+    left: 60%;
+    animation-delay: 5s;
+}
+
+.coracoes span:nth-child(6) {
+    left: 74%;
+    animation-delay: 8s;
+}
+
+.coracoes span:nth-child(7) {
+    left: 87%;
+    animation-delay: 4s;
+}
+
+.coracoes span:nth-child(8) {
+    left: 95%;
+    animation-delay: 9s;
+}
+
+@keyframes subir {
+
+    0% {
+        transform: translateY(0) scale(0.7);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   SEGUNDA TELA
+========================= */
+
+.album {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 80px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================
+   GALERIA
+========================= */
+
+.galeria {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   FOTOS
+========================= */
+
+.foto {
+    position: relative;
+
+    animation: aparecerFoto 1.2s ease both;
+}
+
+.foto1 {
+    grid-column: 1;
+    grid-row: 1;
+
+    transform: rotate(-3deg);
+}
+
+.foto2 {
+    grid-column: 2;
+    grid-row: 1;
+
+    transform: rotate(3deg);
+}
+
+.foto3 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+
+    width: min(440px, 100%);
+
+    justify-self: center;
+
+    transform: rotate(-1deg);
+}
+
+
+/* =========================
+   MOLDURA SUAVE
+========================= */
+
+.moldura {
+    position: relative;
+
+    padding: 10px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(255, 170, 200, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* brilho da moldura */
+
+.moldura::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    pointer-events: none;
+}
+
+
+.moldura img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* efeito ao passar o mouse */
+
+.foto:hover {
+    z-index: 10;
+}
+
+.foto:hover .moldura {
+    transform: translateY(-8px) scale(1.02);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(255, 180, 210, 0.3);
+}
+
+.foto:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   DECORAÇÃO ENTRE FOTOS
+========================= */
+
+.decoracao-central {
+    grid-column: 1 / 3;
+    grid-row: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 5px 0;
+
+    opacity: 0.8;
+}
+
+.decoracao-central span {
+    color: #ffd0df;
+
+    font-size: 20px;
+
+    text-shadow:
+        0 0 10px rgba(255, 180, 210, 0.7),
+        0 0 25px rgba(255, 180, 210, 0.4);
+}
+
+.linha {
+    width: 90px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 210, 225, 0.7),
+        transparent
+    );
+}
+
+
+/* =========================
+   ANIMAÇÃO FOTOS
+========================= */
+
+@keyframes aparecerFoto {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(35px) rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   CONTROLE DA MÚSICA
+========================= */
+
+.controle-musica {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(50, 15, 30, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.controle-musica button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.3s;
+}
+
+.controle-musica button:hover {
+    transform: scale(1.1);
+
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.controle-musica input {
+    width: 90px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   PRIMEIRA TELA
+========================= */
+
+.tela-inicial {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #75324f,
+            #351322 65%,
+            #13060c
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+/* CARTA */
+
+.carta {
+    width: min(440px, 100%);
+
+    padding: 50px 35px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(255, 140, 180, 0.12);
+}
+
+
+/* CORAÇÃO */
+
+.carta-coracao {
+    font-size: 45px;
+
+    color: #ffb2cb;
+
+    margin-bottom: 20px;
+
+    animation: pulsar 1.8s infinite;
+}
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* FRASE */
+
+.carta h1 {
+    font-family: "Dancing Script", cursive;
+
+    font-size: clamp(32px, 7vw, 48px);
+
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    color: #fff;
+}
+
+
+/* MENSAGEM ACIMA DO BOTÃO */
+
+.mensagem {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    margin-bottom: 30px;
+}
+
+
+/* BOTÃO ABRIR */
+
+#entrar {
+    border: none;
+
+    padding: 15px 45px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #f08aaa,
+        #c95b7d
+    );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(200, 70, 110, 0.4);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#entrar:hover {
+    transform: translateY(-3px) scale(1.04);
+
+    box-shadow:
+        0 15px 40px rgba(220, 90, 130, 0.55);
+}
+
+
+/* SUMIR */
+
+.tela-inicial.sumir {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
+
+    .album {
+        padding: 55px 20px 90px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .foto1,
+    .foto2,
+    .foto3 {
+        grid-column: 1;
+
+        grid-row: auto;
+
+        width: 100%;
+
+        transform: rotate(0deg);
+    }
+
+    .foto1 {
+        transform: rotate(-2deg);
+    }
+
+    .foto2 {
+        transform: rotate(2deg);
+    }
+
+    .foto3 {
+        transform: rotate(-1deg);
+    }
+
+    .decoracao-central {
+        grid-column: 1;
+
+        grid-row: auto;
+
+        margin: 0;
+    }
+
+    .linha {
+        width: 55px;
+    }
+
+    .moldura {
+        padding: 8px;
+
+        border-radius: 24px;
+    }
+
+    .moldura img {
+        border-radius: 17px;
+    }
+
+    .carta {
+        padding: 40px 25px;
+    }
+
+    .controle-musica {
+        right: 12px;
+        bottom: 12px;
+    }
+
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 400px) {
+
+    .carta h1 {
+        font-size: 34px;
+    }
+
+    .mensagem {
+        font-size: 13px;
+    }
+
+    .controle-musica input {
+        width: 65px;
+    }
+
+}

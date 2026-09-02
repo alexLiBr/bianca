@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para você ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TELA INICIAL -->
+    <div id="telaInicial" class="tela-inicial">
+
+        <div class="carta">
+
+            <div class="carta-coracao">♥</div>
+
+            <h1>Uma pequena surpresa<br>para você...</h1>
+
+            <p class="mensagem">
+                Preparei isso com muito carinho.<br>
+                Agora é só abrir e deixar o coração sentir. ❤️
+            </p>
+
+            <button id="entrar">
+                Abrir ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MÚSICA -->
+    <audio id="musica" loop>
+        <source src="musica/nossa-musica.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- FUNDO ROMÂNTICO -->
+    <div class="fundo">
+
+        <div class="luz luz1"></div>
+        <div class="luz luz2"></div>
+        <div class="luz luz3"></div>
+
+    </div>
+
+
+    <!-- BRILHOS -->
+    <div class="particulas">
+
+        <span>✦</span>
+        <span>✧</span>
+        <span>•</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>•</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>•</span>
+        <span>✦</span>
+        <span>♡</span>
+        <span>✧</span>
+
+    </div>
+
+
+    <!-- CORAÇÕES DECORATIVOS -->
+    <div class="coracoes">
+
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+
+    </div>
+
+
+    <!-- CONTROLE DA MÚSICA -->
+    <div class="controle-musica">
+
+        <button id="botaoMusica" title="Pausar música">
+            🔊
+        </button>
+
+        <input
+            type="range"
+            id="volume"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+            title="Volume"
+        >
+
+    </div>
+
+
+    <!-- SEGUNDA TELA -->
+    <main class="album">
+
+        <section class="galeria">
+
+            <!-- FOTO 1 -->
+            <div class="foto foto1">
+                <div class="moldura">
+                    <img src="fotos/foto1.jpeg" alt="Nossa foto">
+                </div>
+            </div>
+
+
+            <!-- FOTO 2 -->
+            <div class="foto foto2">
+                <div class="moldura">
+                    <img src="fotos/foto2.jpeg" alt="Nossa foto">
+                </div>
+            </div>
+
+
+            <!-- DECORAÇÃO CENTRAL -->
+            <div class="decoracao-central">
+
+                <span>♡</span>
+
+                <div class="linha"></div>
+
+                <span>♥</span>
+
+                <div class="linha"></div>
+
+                <span>♡</span>
+
+            </div>
+
+
+            <!-- FOTO 3 -->
+            <div class="foto foto3">
+                <div class="moldura">
+                    <img src="fotos/foto3.jpeg" alt="Nossa foto">
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const musica = document.getElementById("musica");
+        const telaInicial = document.getElementById("telaInicial");
+        const entrar = document.getElementById("entrar");
+
+        const botaoMusica = document.getElementById("botaoMusica");
+        const volume = document.getElementById("volume");
+
+
+        // Volume inicial
+        musica.volume = 0.5;
+
+
+        // ABRIR PRESENTE
+        entrar.addEventListener("click", function () {
+
+            musica.play().catch(function () {
+                console.log("O navegador bloqueou a reprodução.");
+            });
+
+            telaInicial.classList.add("sumir");
+
+        });
+
+
+        // PLAY / PAUSE
+        botaoMusica.addEventListener("click", function () {
+
+            if (musica.paused) {
+
+                musica.play();
+
+                botaoMusica.textContent = "🔊";
+                botaoMusica.title = "Pausar música";
+
+            } else {
+
+                musica.pause();
+
+                botaoMusica.textContent = "🔇";
+                botaoMusica.title = "Continuar música";
+
+            }
+
+        });
+
+
+        // CONTROLE DE VOLUME
+        volume.addEventListener("input", function () {
+
+            musica.volume = volume.value;
+
+            if (musica.volume == 0) {
+
+                botaoMusica.textContent = "🔇";
+
+            } else {
+
+                botaoMusica.textContent = "🔊";
+
+            }
+
+        });
+
+
+        // GARANTE LOOP
+        musica.addEventListener("ended", function () {
+
+            musica.currentTime = 0;
+            musica.play();
+
+        });
+
+    </script>
+
+</body>
+</html>
